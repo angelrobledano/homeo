@@ -12,6 +12,13 @@
 > **Cockpit de Telemetría Biométrica y Homeostasis Fisiológica Dinámica**  
 > Aplicación de salud y rendimiento atlético nativa para Android con funcionamiento prioritariamente local (offline-first). Conexión directa por BLE con wearables (Amazfit GTR 3), sincronización con básculas mediante Android Health Connect (Renpho), modelos de fisiología deportiva deterministas (ACWR de Gabbett, TRIMP de Banister, tendencia de peso EMA tipo MacroFactor) y diseño oscuro OLED de alto contraste inspirado en WHOOP.
 
+<p align="center">
+  <img src="docs/assets/screenshots/dashboard.png" width="23%" alt="Cockpit Diario" />
+  <img src="docs/assets/screenshots/progress.png" width="23%" alt="Progreso y ACWR" />
+  <img src="docs/assets/screenshots/workout.png" width="23%" alt="Entrenamiento y TRIMP" />
+  <img src="docs/assets/screenshots/coach.png" width="23%" alt="Coach Fisiológico" />
+</p>
+
 ---
 
 ## Tabla de Contenidos

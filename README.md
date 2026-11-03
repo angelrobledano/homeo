@@ -12,6 +12,13 @@
 > **Dynamic Physiological Homeostasis & Biometric Telemetry Cockpit**  
 > An offline-first, scientific health and athletic performance app built for Android. Direct BLE connection to wearables (Amazfit GTR 3), Android Health Connect integration (Renpho scales), deterministic sports physiology algorithms (Gabbett ACWR, Banister TRIMP, MacroFactor-style EMA weight trend), and an OLED dark-mode design inspired by WHOOP.
 
+<p align="center">
+  <img src="docs/assets/screenshots/dashboard.png" width="23%" alt="Daily Cockpit" />
+  <img src="docs/assets/screenshots/progress.png" width="23%" alt="Progress & ACWR" />
+  <img src="docs/assets/screenshots/workout.png" width="23%" alt="Workout & TRIMP" />
+  <img src="docs/assets/screenshots/coach.png" width="23%" alt="Rule-Based Coach" />
+</p>
+
 ---
 
 ## Table of Contents
