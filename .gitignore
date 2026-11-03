@@ -1,0 +1,25 @@
+# Gradle & Kotlin
+.gradle/
+.kotlin/
+build/
+*/build/
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+.superpowers/
+
+# Local configuration & Keystores
+local.properties
+*.jks
+*.keystore
+
+# Auth keys / Secrets (never commit real user keys)
+secrets.properties
+*.key
+*.pem
+*.p12
+.env*
+
+# Local tooling & critiques
+.impeccable/
