@@ -28,18 +28,19 @@ fun WhoopBottomNavBar(
     ) {
         TopLevelDestination.entries.forEach { destination ->
             val selected = currentDestination == destination
+            val localizedLabel = androidx.compose.ui.res.stringResource(destination.labelRes)
             NavigationBarItem(
                 selected = selected,
                 onClick = { onNavigate(destination) },
                 icon = {
                     Icon(
                         imageVector = if (selected) destination.selectedIcon else destination.unselectedIcon,
-                        contentDescription = destination.label
+                        contentDescription = localizedLabel
                     )
                 },
                 label = {
                     Text(
-                        text = destination.label,
+                        text = localizedLabel,
                         fontSize = 11.sp,
                         fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal
                     )

@@ -26,13 +26,22 @@ import java.time.LocalDate
 import java.time.ZoneId
 import java.time.temporal.ChronoUnit
 
+import androidx.annotation.StringRes
+import com.salud.personal.R
+
 /**
  * Periodos de análisis para la pestaña Progreso con soporte de gestos swipe y selección dinámica.
  */
-enum class ProgressPeriod(val label: String, val subtitle: String, val days: Int) {
-    LAST_7_DAYS("7D", "Semanal", 7),
-    LAST_30_DAYS("30D", "Mensual", 30),
-    LAST_90_DAYS("90D", "Trimestral", 90)
+enum class ProgressPeriod(
+    val label: String,
+    val subtitle: String,
+    val days: Int,
+    @StringRes val labelRes: Int = 0,
+    @StringRes val subtitleRes: Int = 0
+) {
+    LAST_7_DAYS("7D", "Semanal", 7, R.string.progress_period_7d, R.string.progress_period_weekly),
+    LAST_30_DAYS("30D", "Mensual", 30, R.string.progress_period_30d, R.string.progress_period_monthly),
+    LAST_90_DAYS("90D", "Trimestral", 90, R.string.progress_period_90d, R.string.progress_period_quarterly)
 }
 
 data class ProgressUiState(

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App & General -->
+    <string name="app_name">Homeo</string>
+    <string name="widget_description">Resumen biométrico rápido de recuperación, esfuerzo y pasos de hoy.</string>
+    <string name="retry">Reintentar</string>
+    <string name="connect">Conectar</string>
+    <string name="connecting">Conectando</string>
+    <string name="connected">Conectado</string>
+    <string name="disconnected">Desconectado</string>
+    <string name="scanning">Buscando</string>
+    <string name="authenticating">Autenticando</string>
+    <string name="auth_failed">Error clave</string>
+    <string name="sync">Sincronizar</string>
+    <string name="calendar">Calendario</string>
+    <string name="settings">Ajustes</string>
+    <string name="close">Cerrar</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="pending">Pendiente</string>
+    <string name="today">Hoy</string>
+
+    <!-- Navigation -->
+    <string name="nav_today">Hoy</string>
+    <string name="nav_workout">Entreno</string>
+    <string name="nav_progress">Progreso</string>
+    <string name="nav_coach">Coach</string>
+
+    <!-- Dashboard / Today Tab -->
+    <string name="dash_day_status">ESTADO DEL DÍA</string>
+    <string name="dash_mode_morning">Modo Mañana</string>
+    <string name="dash_mode_active">Modo Activo</string>
+    <string name="dash_mode_night">Modo Noche</string>
+    <string name="dash_recovery">RECUPERACIÓN</string>
+    <string name="dash_strain">Esfuerzo</string>
+    <string name="dash_steps">Pasos</string>
+    <string name="dash_sleep">Sueño</string>
+    <string name="dash_rhr">FC en reposo</string>
+    <string name="dash_vitals_baseline">Vitals Baseline</string>
+    <string name="dash_in_range">Dentro del rango</string>
+    <string name="dash_elevated">Elevado</string>
+    <string name="dash_depressed">Bajo</string>
+    <string name="dash_biological_weight">Peso Biológico</string>
+    <string name="dash_weight_delta_7d">Delta 7d</string>
+    <string name="dash_weight_calibrating">Báscula calibrando / sin pesaje válido</string>
+    <string name="dash_activity">ACTIVIDAD</string>
+    <string name="dash_distance">Distancia</string>
+    <string name="dash_calories">Calorías</string>
+    <string name="dash_strain_optimal">Óptimo alcanzado</string>
+    <string name="dash_strain_below">Por debajo</string>
+    <string name="dash_strain_over">Sobrecarga</string>
+    <string name="dash_checkin_title">Check-in matutino</string>
+    <string name="dash_checkin_done">Completado · Recuperación %1$d%%</string>
+    <string name="dash_checkin_pending">Registrar sensaciones y hábitos del día</string>
+    <string name="dash_workouts_today">ENTRENAMIENTO REGISTRADO HOY</string>
+    <string name="dash_session_singular">%1$d sesión</string>
+    <string name="dash_session_plural">%1$d sesiones</string>
+
+    <!-- Progress / Trends Tab -->
+    <string name="progress_title">Tendencias y Adaptación</string>
+    <string name="progress_period_7d">7D</string>
+    <string name="progress_period_30d">30D</string>
+    <string name="progress_period_90d">90D</string>
+    <string name="progress_period_weekly">Semanal</string>
+    <string name="progress_period_monthly">Mensual</string>
+    <string name="progress_period_quarterly">Trimestral</string>
+    <string name="progress_workload_title">Carga Crónica vs Aguda</string>
+    <string name="progress_acwr_ratio">Ratio ACWR</string>
+    <string name="progress_acwr_undertraining">Desentrenamiento (&lt;0.8)</string>
+    <string name="progress_acwr_optimal">Rango Óptimo (0.8–1.3)</string>
+    <string name="progress_acwr_caution">Precaución (1.3–1.5)</string>
+    <string name="progress_acwr_danger">Sobreentrenamiento (&gt;1.5)</string>
+    <string name="progress_rhr_trend">FC Reposo (30 días)</string>
+    <string name="progress_weight_trend">Tendencia de Peso (EMA α=0.10)</string>
+    <string name="progress_habits_impact">Impacto de Hábitos</string>
+    <string name="progress_chronic">Crónica</string>
+    <string name="progress_acute">Aguda</string>
+    <string name="progress_vs_previous">vs periodo anterior</string>
+
+    <!-- Workout / Training Tab -->
+    <string name="workout_title">Entrenamientos y Carga</string>
+    <string name="workout_trimp_title">Carga Cardiovascular (TRIMP)</string>
+    <string name="workout_log_button">Registrar Entreno</string>
+    <string name="workout_gps_walk">Paseo GPS Exterior</string>
+    <string name="workout_hr_zones">Zonas de Pulso Cardíaco</string>
+    <string name="workout_zone1">Z1 Recuperación</string>
+    <string name="workout_zone2">Z2 Base Aeróbica</string>
+    <string name="workout_zone3">Z3 Tempo / Umbral</string>
+    <string name="workout_zone4">Z4 Capacidad Anaeróbica</string>
+    <string name="workout_zone5">Z5 Neuromuscular / Máximo</string>
+    <string name="workout_recent_sessions">Sesiones Recientes</string>
+    <string name="workout_no_sessions">Sin entrenamientos registrados en este periodo</string>
+
+    <!-- Coach Tab -->
+    <string name="coach_title">Coach Fisiológico</string>
+    <string name="coach_readiness_high">Preparación alta: excelente día para buscar alta exigencia.</string>
+    <string name="coach_readiness_mod">Preparación moderada: mantén la base aeróbica, evita llegar al fallo.</string>
+    <string name="coach_readiness_low">Preparación baja: prioriza descanso pasivo, movilidad y sueño temprano.</string>
+    <string name="coach_inquiries_title">Preguntas rápidas</string>
+    <string name="coach_chip_wod">¿Puedo entrenar intenso hoy?</string>
+    <string name="coach_chip_sleep">¿Cómo evoluciona mi deuda de sueño?</string>
+    <string name="coach_chip_weight">¿La variación de mi peso es real o retención?</string>
+    <string name="coach_chip_deload">¿Es momento de una semana de descarga atlética?</string>
+
+    <!-- Settings & Devices -->
+    <string name="settings_title">Ajustes y Fuentes</string>
+    <string name="settings_device_watch">Smartwatch (Amazfit GTR 3)</string>
+    <string name="settings_device_scale">Báscula (Health Connect / Renpho)</string>
+    <string name="settings_data_export">Exportar Datos</string>
+    <string name="settings_export_json">Exportar JSON Sanitizado</string>
+    <string name="settings_export_csv">Exportar Copias CSV</string>
+    <string name="settings_privacy_note">100% offline. Ningún dato sale de tu dispositivo.</string>
+
+    <!-- Calendar & Retrospective -->
+    <string name="calendar_title">Historial Mensual</string>
+    <string name="calendar_month">Mes</string>
+    <string name="calendar_select_day">Selecciona un día para ver su resumen biométrico</string>
+</resources>

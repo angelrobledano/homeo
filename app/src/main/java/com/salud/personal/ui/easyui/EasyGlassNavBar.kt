@@ -104,13 +104,14 @@ fun EasyGlassNavBar(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(3.dp)
                     ) {
+                        val localizedLabel = androidx.compose.ui.res.stringResource(destination.labelRes)
                         Icon(
                             imageVector = if (isSelected) destination.selectedIcon else destination.unselectedIcon,
-                            contentDescription = destination.label,
+                            contentDescription = localizedLabel,
                             tint = activeColor
                         )
                         Text(
-                            text = destination.label,
+                            text = localizedLabel,
                             fontSize = 11.sp,
                             fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Medium,
                             color = activeColor

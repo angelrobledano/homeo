@@ -214,8 +214,9 @@ fun ProgressScreen(
                         .tactilePress(scaleDown = 0.94f)
                         .clickable { onSelectPeriod(period) }
                 ) {
+                    val periodSub = if (period.subtitleRes != 0) androidx.compose.ui.res.stringResource(period.subtitleRes) else period.subtitle
                     Text(
-                        text = "${period.label} · ${period.subtitle}",
+                        text = "${period.label} · $periodSub",
                         style = MaterialTheme.typography.labelSmall,
                         fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
                         color = if (isSelected) WhoopColors.Background else WhoopColors.OnSurfaceSecondary,

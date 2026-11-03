@@ -10,7 +10,7 @@
 
 - **Comunidad Bilingüe:** Puedes abrir Issues, Pull Requests y participar en debates tanto en **inglés** como en **español**.
 - **Identificadores en Código:** Todos los nombres técnicos en el código fuente (clases, métodos, variables, tablas de base de datos, comentarios de código y mensajes de commit de Git) deben escribirse en **inglés**.
-- **Textos de Interfaz (UI):** Los textos visibles para el usuario en la aplicación se gestionan en español de España (`es_ES`) por defecto, con internacionalización mediante `strings.xml`.
+- **Textos de Interfaz (UI):** Los textos de la aplicación tienen como base canónica el inglés (`values/strings.xml`), con localización completa al español de España en `values-es/strings.xml`.
 
 ---
 
@@ -79,9 +79,37 @@ Verifica que todas las pruebas pasen con éxito (`BUILD SUCCESSFUL`) sin adverte
 
 ---
 
+## Cómo Contribuir con Traducciones a la App (i18n)
+
+Homeo está concebida como una plataforma global de código abierto. Añadir un nuevo idioma a la interfaz es muy sencillo y **no requiere modificar código en Kotlin**:
+
+1. **Localiza el archivo base:**
+   Abre `app/src/main/res/values/strings.xml` (la fuente canónica en inglés).
+2. **Crea el directorio de tu idioma:**
+   Crea una carpeta de recursos siguiendo el estándar de Android `values-<código-ISO-639-1>` dentro de `app/src/main/res/`:
+   ```bash
+   # Ejemplos:
+   app/src/main/res/values-fr/   # Francés
+   app/src/main/res/values-de/   # Alemán
+   app/src/main/res/values-it/   # Italiano
+   app/src/main/res/values-pt/   # Portugués
+   app/src/main/res/values-ja/   # Japonés
+   ```
+3. **Copia y traduce:**
+   Copia el archivo `strings.xml` en tu nueva carpeta y traduce cada cadena entre las etiquetas XML:
+   ```xml
+   <!-- Ejemplo en values-de/strings.xml -->
+   <string name="dash_recovery">ERHOLUNG</string>
+   <string name="dash_strain">Belastung</string>
+   ```
+4. **Verifica y abre un Pull Request:**
+   Ejecuta `./gradlew assembleDebug` para confirmar que el XML no tiene errores sintácticos y crea un Pull Request con el título `feat(i18n): add <Idioma> translation`.
+
+---
+
 ## Cómo Enviar un Pull Request
 
-1. Haz un fork del repositorio y crea tu rama a partir de `master`.
+1. Haz un fork del repositorio y crea tu rama a partir de `main`.
 2. Asegúrate de que el proyecto compila limpiamente y pasa todas las pruebas automatizadas.
 3. Comprueba que se han actualizado los documentos tanto en **inglés** como en **español** si el cambio lo requiere.
 4. Abre tu Pull Request detallando:

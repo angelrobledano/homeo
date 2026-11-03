@@ -120,3 +120,19 @@ adb logcat -v time | grep "com.salud.personal"
 1. Respeta la **Regla de Diseño 1**: Suprime textos explicativos redundantes o frases vacías.
 2. Utiliza exclusivamente tokens del tema `WhoopColors` y `MaterialTheme.typography`.
 3. Comprueba que todo elemento interactivo cuente con un área táctil mínima de 48x48dp.
+4. No introduzcas textos fijos en código Kotlin; referencia siempre recursos mediante `stringResource(R.string.<id>)`.
+
+---
+
+## 7. Internacionalización y Cómo Añadir Idiomas (i18n)
+
+Homeo está estructurado como un proyecto abierto internacional donde añadir cualquier nuevo idioma requiere **cero modificaciones en código Kotlin**:
+
+1. **Idioma canónico base (Inglés):** Ubicado en `app/src/main/res/values/strings.xml`.
+2. **Localización al Español:** Ubicada en `app/src/main/res/values-es/strings.xml`.
+3. **Pasos para contribuir un nuevo idioma:**
+   - Crea una carpeta `app/src/main/res/values-<locale>/` (ej: `values-fr/`, `values-de/`, `values-it/`, `values-pt/`, `values-ja/`).
+   - Copia `app/src/main/res/values/strings.xml` dentro de tu directorio.
+   - Traduce los textos entre las etiquetas `<string name="...">...</string>`.
+   - Ejecuta `./gradlew assembleDebug` para verificar la corrección del XML.
+   - ¡Envía tu Pull Request!

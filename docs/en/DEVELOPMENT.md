@@ -120,3 +120,19 @@ adb logcat -v time | grep "com.salud.personal"
 1. Adhere to **Rule 1**: Avoid redundant explanatory paragraphs or decorative filler copy.
 2. Rely exclusively on tokens from `WhoopColors` and `MaterialTheme.typography`.
 3. Ensure interactive elements maintain a minimum 48x48dp touch target.
+4. Never hardcode user-facing strings in Composables; reference `stringResource(R.string.<id>)`.
+
+---
+
+## 7. Internationalization & Adding Translations (i18n)
+
+Homeo is engineered as an open-source global project where adding a new language requires **zero Kotlin code modifications**:
+
+1. **Default Language (English):** Located in `app/src/main/res/values/strings.xml`.
+2. **Spanish Localization:** Located in `app/src/main/res/values-es/strings.xml`.
+3. **To contribute a new language:**
+   - Create a directory `app/src/main/res/values-<locale>/` (e.g., `values-fr/`, `values-de/`, `values-it/`, `values-pt/`, `values-ja/`).
+   - Copy `app/src/main/res/values/strings.xml` into your directory.
+   - Translate the string values within the `<string name="...">...</string>` tags.
+   - Run `./gradlew assembleDebug` to verify XML validity.
+   - Submit your Pull Request!

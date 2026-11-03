@@ -93,6 +93,8 @@ import com.salud.personal.ui.easyui.EasySpotlightCard
 import com.salud.personal.ui.easyui.tactilePress
 import com.salud.personal.ui.theme.SaludPersonalTheme
 import com.salud.personal.ui.theme.WhoopColors
+import androidx.compose.ui.res.stringResource
+import com.salud.personal.R
 import java.time.Instant
 import java.time.LocalDate
 import java.util.Locale
@@ -433,7 +435,7 @@ private fun DayStateHeroCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "ESTADO DEL DÍA",
+                    text = stringResource(R.string.dash_day_status),
                     style = MaterialTheme.typography.labelMedium.copy(letterSpacing = 1.5.sp),
                     fontWeight = FontWeight.Bold,
                     color = WhoopColors.OnSurfaceSecondary
@@ -448,9 +450,9 @@ private fun DayStateHeroCard(
                     DashboardTimeMode.entries.forEach { mode ->
                         val isSelected = mode == timeMode
                         val modeLabel = when (mode) {
-                            DashboardTimeMode.MORNING -> "Modo Mañana"
-                            DashboardTimeMode.DAYTIME -> "Modo Activo"
-                            DashboardTimeMode.EVENING -> "Modo Noche"
+                            DashboardTimeMode.MORNING -> stringResource(R.string.dash_mode_morning)
+                            DashboardTimeMode.DAYTIME -> stringResource(R.string.dash_mode_active)
+                            DashboardTimeMode.EVENING -> stringResource(R.string.dash_mode_night)
                         }
                         Surface(
                             shape = RoundedCornerShape(12.dp),
@@ -520,7 +522,7 @@ private fun DayStateHeroCard(
                     }
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "RECUPERACIÓN",
+                        text = stringResource(R.string.dash_recovery),
                         style = MaterialTheme.typography.labelSmall.copy(fontSize = 9.sp),
                         fontWeight = FontWeight.Bold,
                         color = recoveryColor
@@ -539,7 +541,7 @@ private fun DayStateHeroCard(
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             Text(
-                                text = "Esfuerzo",
+                                text = stringResource(R.string.dash_strain),
                                 style = MaterialTheme.typography.labelSmall,
                                 color = WhoopColors.OnSurfaceTertiary
                             )
@@ -574,13 +576,13 @@ private fun DayStateHeroCard(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Sueño anoche",
+                            text = stringResource(R.string.dash_sleep),
                             style = MaterialTheme.typography.labelSmall,
                             color = WhoopColors.OnSurfaceTertiary
                         )
                         val sleepText = sleepMinutes?.let {
                             "${it / 60}h ${it % 60}m"
-                        } ?: "Pendiente"
+                        } ?: stringResource(R.string.pending)
                         Text(
                             text = sleepText,
                             style = MaterialTheme.typography.labelSmall.copy(fontFamily = FontFamily.Monospace),
@@ -596,7 +598,7 @@ private fun DayStateHeroCard(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "FC en reposo",
+                            text = stringResource(R.string.dash_rhr),
                             style = MaterialTheme.typography.labelSmall,
                             color = WhoopColors.OnSurfaceTertiary
                         )
@@ -671,7 +673,7 @@ private fun TodayWorkoutsCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "ENTRENAMIENTO REGISTRADO HOY",
+                    text = stringResource(R.string.dash_workouts_today),
                     style = MaterialTheme.typography.labelMedium.copy(letterSpacing = 1.2.sp),
                     fontWeight = FontWeight.SemiBold,
                     color = WhoopColors.OnSurfaceSecondary,
@@ -679,7 +681,7 @@ private fun TodayWorkoutsCard(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "${workouts.size} ${if (workouts.size == 1) "sesión" else "sesiones"}",
+                    text = if (workouts.size == 1) stringResource(R.string.dash_session_singular, workouts.size) else stringResource(R.string.dash_session_plural, workouts.size),
                     style = MaterialTheme.typography.labelSmall,
                     color = WhoopColors.Strain,
                     maxLines = 1,
@@ -783,13 +785,13 @@ private fun MorningCheckInCard(
 
                 Column {
                     Text(
-                        text = "CHECK-IN MATUTINO",
+                        text = stringResource(R.string.dash_checkin_title),
                         style = MaterialTheme.typography.labelMedium.copy(letterSpacing = 1.2.sp),
                         fontWeight = FontWeight.SemiBold,
                         color = WhoopColors.OnSurfaceSecondary
                     )
                     Text(
-                        text = if (completed) "Completado · Recuperación ${score ?: 75}%" else "Registrar sensaciones del día",
+                        text = if (completed) stringResource(R.string.dash_checkin_done, score ?: 75) else stringResource(R.string.dash_checkin_pending),
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Medium,
                         color = if (completed) WhoopColors.recoveryColor(score ?: 75) else WhoopColors.OnSurface
@@ -817,14 +819,15 @@ private fun WatchDeviceChip(
     onSync: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val (dotColor, statusLabel) = when (connectionState) {
-        DeviceConnectionState.CONNECTED -> Pair(WhoopColors.RecoveryHigh, "Conectado")
-        DeviceConnectionState.CONNECTING -> Pair(WhoopColors.Warning, "Conectando")
-        DeviceConnectionState.SCANNING -> Pair(WhoopColors.Warning, "Buscando")
-        DeviceConnectionState.AUTHENTICATING -> Pair(WhoopColors.Warning, "Autenticando")
-        DeviceConnectionState.AUTH_FAILED -> Pair(WhoopColors.Error, "Error clave")
-        DeviceConnectionState.DISCONNECTED -> Pair(WhoopColors.OnSurfaceTertiary, "Desconectado")
+    val (dotColor, statusRes) = when (connectionState) {
+        DeviceConnectionState.CONNECTED -> Pair(WhoopColors.RecoveryHigh, R.string.connected)
+        DeviceConnectionState.CONNECTING -> Pair(WhoopColors.Warning, R.string.connecting)
+        DeviceConnectionState.SCANNING -> Pair(WhoopColors.Warning, R.string.scanning)
+        DeviceConnectionState.AUTHENTICATING -> Pair(WhoopColors.Warning, R.string.authenticating)
+        DeviceConnectionState.AUTH_FAILED -> Pair(WhoopColors.Error, R.string.auth_failed)
+        DeviceConnectionState.DISCONNECTED -> Pair(WhoopColors.OnSurfaceTertiary, R.string.disconnected)
     }
+    val statusLabel = stringResource(statusRes)
 
     Row(
         modifier = modifier.fillMaxWidth(),
@@ -890,7 +893,7 @@ private fun WatchDeviceChip(
                         modifier = Modifier.defaultMinSize(minHeight = 48.dp)
                     ) {
                         Text(
-                            text = if (connectionState == DeviceConnectionState.AUTH_FAILED) "Reintentar" else "Conectar",
+                            text = if (connectionState == DeviceConnectionState.AUTH_FAILED) stringResource(R.string.retry) else stringResource(R.string.connect),
                             style = MaterialTheme.typography.labelMedium
                         )
                     }
@@ -915,7 +918,7 @@ private fun WatchDeviceChip(
             ) {
                 Icon(
                     imageVector = Icons.Default.Refresh,
-                    contentDescription = "Sincronizar",
+                    contentDescription = stringResource(R.string.sync),
                     tint = WhoopColors.Strain,
                     modifier = Modifier.size(22.dp)
                 )
@@ -929,7 +932,7 @@ private fun WatchDeviceChip(
             ) {
                 Icon(
                     imageVector = Icons.Default.DateRange,
-                    contentDescription = "Calendario",
+                    contentDescription = stringResource(R.string.calendar),
                     tint = WhoopColors.OnSurfaceTertiary,
                     modifier = Modifier.size(22.dp)
                 )
@@ -943,7 +946,7 @@ private fun WatchDeviceChip(
             ) {
                 Icon(
                     imageVector = Icons.Default.Settings,
-                    contentDescription = "Ajustes",
+                    contentDescription = stringResource(R.string.settings),
                     tint = WhoopColors.OnSurfaceTertiary,
                     modifier = Modifier.size(22.dp)
                 )
@@ -987,7 +990,7 @@ private fun StepsCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "ACTIVIDAD",
+                    text = stringResource(R.string.dash_activity),
                     style = MaterialTheme.typography.labelMedium.copy(letterSpacing = 1.5.sp),
                     fontWeight = FontWeight.SemiBold,
                     color = WhoopColors.OnSurfaceSecondary
@@ -1002,7 +1005,7 @@ private fun StepsCard(
             WhoopProgressRing(
                 progress = progress,
                 displayValue = DashboardFormatting.formatSteps(activity?.steps),
-                displayUnit = "pasos",
+                displayUnit = stringResource(R.string.dash_steps).lowercase(),
                 accentColor = WhoopColors.Strain,
                 trackColor = WhoopColors.StrainTrack,
                 ringSize = 160.dp,
@@ -1034,11 +1037,11 @@ private fun StepsCard(
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 CompactMetric(
-                    label = "Distancia",
+                    label = stringResource(R.string.dash_distance),
                     value = DashboardFormatting.formatDistance(activity?.distanceMeters)
                 )
                 CompactMetric(
-                    label = "Calorías",
+                    label = stringResource(R.string.dash_calories),
                     value = DashboardFormatting.formatCalories(activity?.caloriesBurned)
                 )
             }
@@ -1069,9 +1072,9 @@ private fun StrainTargetCard(
         StrainStatus.OVER_STRAIN -> WhoopColors.Error
     }
     val statusLabel = when (status) {
-        StrainStatus.OPTIMAL -> "Óptimo alcanzado"
-        StrainStatus.BELOW_TARGET -> "Por debajo"
-        StrainStatus.OVER_STRAIN -> "Sobrecarga"
+        StrainStatus.OPTIMAL -> stringResource(R.string.dash_strain_optimal)
+        StrainStatus.BELOW_TARGET -> stringResource(R.string.dash_strain_below)
+        StrainStatus.OVER_STRAIN -> stringResource(R.string.dash_strain_over)
     }
 
     EasySpotlightCard(
@@ -1522,7 +1525,7 @@ private fun WeightSummaryCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "PESO Y COMPOSICIÓN",
+                    text = stringResource(R.string.dash_biological_weight),
                     style = MaterialTheme.typography.labelMedium.copy(letterSpacing = 1.5.sp),
                     fontWeight = FontWeight.SemiBold,
                     color = WhoopColors.OnSurfaceSecondary

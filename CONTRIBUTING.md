@@ -10,7 +10,7 @@ Thank you for your interest in contributing to **Homeo**! We welcome contributio
 
 - **Bilingual Community:** You are welcome to submit Issues, Pull Requests, and join discussions in either **English** or **Spanish**.
 - **Code Identifiers:** All source code identifiers (classes, methods, variables, database tables, comments, and commit messages) must remain in **English**.
-- **UI User-Facing Text:** User-facing strings in the application default to European Spanish (`es_ES`), with internationalization via Android `strings.xml`.
+- **UI User-Facing Text:** User-facing strings in the application default to English (`values/strings.xml`), with full European Spanish localization provided in `values-es/strings.xml`.
 
 ---
 
@@ -79,9 +79,37 @@ Verify that all tests pass (`BUILD SUCCESSFUL`) with zero warnings or regression
 
 ---
 
+## Contributing App Translations (i18n)
+
+Homeo is designed as an open-source, global health companion. Adding support for a new language is simple and requires **no Kotlin code changes**:
+
+1. **Locate the base translation file:**
+   Open `app/src/main/res/values/strings.xml` (the canonical English source).
+2. **Create your language directory:**
+   Create a new resource folder following Android's standard locale qualifier `values-<ISO-639-1>` under `app/src/main/res/`:
+   ```bash
+   # Examples:
+   app/src/main/res/values-fr/   # French
+   app/src/main/res/values-de/   # German
+   app/src/main/res/values-it/   # Italian
+   app/src/main/res/values-pt/   # Portuguese
+   app/src/main/res/values-ja/   # Japanese
+   ```
+3. **Copy and translate:**
+   Copy `strings.xml` into your new folder and translate each string between the XML tags:
+   ```xml
+   <!-- Example in values-de/strings.xml -->
+   <string name="dash_recovery">ERHOLUNG</string>
+   <string name="dash_strain">Belastung</string>
+   ```
+4. **Verify and submit:**
+   Run `./gradlew assembleDebug` to verify that your XML has no syntax errors, then open a Pull Request titled `feat(i18n): add <Language> translation`.
+
+---
+
 ## Submitting a Pull Request
 
-1. Fork the repository and create your feature branch from `master`.
+1. Fork the repository and create your feature branch from `main`.
 2. Ensure your changes compile cleanly and pass all automated tests.
 3. Verify that both **English** and **Spanish** documentation files have been updated if applicable.
 4. Submit your Pull Request detailing:
